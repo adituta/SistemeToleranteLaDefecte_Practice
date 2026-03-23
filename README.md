@@ -236,6 +236,18 @@ Haide sa modificam acum fisierul index.php, sa il salvam si sa vedem modificaril
 
 Vedem ca modificarile au aparut! Superr!
 
+================================================================
+Raspunsuri la intrebari din laborator:
+1) Ce se întâmplă când montăm un volum vs un bind mount la o cale cu fișiere existente?
+Volumul (Named Volume): Dacă volumul este nou/gol, Docker copiază fișierele din imagine în volum. Aplicația pornește normal.
+Bind Mount: Docker ascunde fișierele din imagine. Dacă folderul de pe gazdă (Windows) este gol, aplicația "dispare" din container.    (am vazut asta la db-server)
+
+2) Cum recuperezi secrets.txt dintr-un volum șters din greșeală?
+Datele sunt încă în volumul gestionat de Docker. Poți face "mount" la acel volum pe un container nou, temporar, și să folosești comanda docker cp:
+docker cp container_temporar:/cale/catre/secrets.txt ./recuperat_secrets.txt
+
+
+
 
    
 
